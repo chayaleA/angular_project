@@ -1,0 +1,28 @@
+<ul class="list-group">
+    <li *ngFor="let student of students" class="list-group-item">
+        <div class="row">
+            <div class="col-1"> id: {{student.id}}</div>
+            <div class="col-1">first name: {{student.firstName}}</div>
+            <div class="col-1"> last name: {{student.lastname}}</div>
+            <div class="col-1">address: {{student.address}}</div>
+            <div class="col-1"> phone: {{student.phone}}</div>
+            <div class="col-1"> active: {{student.active}}</div>
+            <div class="col-1"> avergeMarks: {{student.avergeMarks}}</div>
+            <div class="col-2">
+                <button (click)="showDetails(student)"  class="btn btn-success">Editing details</button>
+            </div>
+            <div class="col-2" *ngIf="student.id">
+                <button (click)="deleteStudent(student.id)" class="btn btn-outline-warning">Delete student</button>
+            </div>
+        </div>
+    </li>
+</ul>
+<br>
+<div>
+    <button (click)="ShowNewStudent()" class="btn btn-primary btn-lg">Add new Student</button>
+</div>
+
+<br>
+<br>
+
+<app-student-details [student]="selectStudent" (onSaveNewStudent)="AddNewStudentToList($event)" (firstFocus)="showDescription()" ></app-student-details>

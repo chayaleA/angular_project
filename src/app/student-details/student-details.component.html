@@ -1,0 +1,53 @@
+<div class="card" *ngIf="student else noStudent">
+    <div class="card-body">
+        Student details:
+
+        <div class="form-group">
+            <br>
+            <label for="first name">first name:</label>
+            <input type="text" class="form-control" id="first name" [placeholder]="student.firstName"  #firstName (keyup)="setFirstName(firstName.value)" >
+        </div>
+        <div class="form-group">
+            <label for="last name">last name:</label>
+            <input type="text" class="form-control" id="last name" [placeholder]="student.lastname"  #lastname (keyup)="setLastName(lastname.value)">
+        </div>
+        <div class="form-group">
+            <label for="id">id:</label>
+            <input type="number"  class="form-control" id="id" [placeholder]="student.id" #id (keyup)="setId(id.value)" >
+        </div>
+        <div class="form-group">
+            <label for="address">address:</label>
+            <input type="text" class="form-control" id="address" [placeholder]="student.address"  #address (keyup)="setAddress(address.value)" >
+        </div>
+        <div class="form-group">
+            <label for="phone">phone:</label>
+            <input type="text" class="form-control" id="phone" [placeholder]="student.phone"  #phone (keyup)="setPhone(phone.value)" >
+        </div>
+        <div class="form-group">
+            <label for="active">active:</label>
+            <input type="text" class="form-control" id="active" [placeholder]="student.active"  #active (keyup)="setActive(active.value)">
+        </div>
+        <div class="form-group">
+            <label for="avergeMarks">avergeMarks:</label>
+            <input type="number" class="form-control" id="avergeMarks" [placeholder]="student.avergeMarks" #avergeMarks (keyup)="setAvergeMarks(avergeMarks.value)" >
+        </div>
+        <!-- <div *ngIf="student.active == false">
+            <label for="departureDate">departureDate:</label>
+            <input type="text" class="form-control" id="departureDate" [placeholder]="student.departureDate"  >
+        </div> -->
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input (focus)="focusEvent()" type="text" class="form-control" id="description"
+                placeholder="{{student.description}}"  #description (keyup)="setDescription(description.value)" >
+        </div>
+        <button class="btn btn-primary" (click)="SaveStudent(student)" >Save</button>
+
+    </div>
+</div>
+
+<ng-template #noStudent>
+    <div class="card">
+        No student to display
+    </div>
+    <br>
+</ng-template>
